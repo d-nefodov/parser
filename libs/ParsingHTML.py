@@ -12,5 +12,7 @@ class ParsingHTML():
         page = requests.get(self.url)
         if page.status_code == 200:
             return BeautifulSoup(page.text, "html.parser")
-        else:
-            return 'Problem with connection...'
+    
+    def clearing_html(self):
+        raw = self.raw_parse()
+        return raw.prettify()
